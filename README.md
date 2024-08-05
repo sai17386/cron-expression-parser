@@ -2,15 +2,19 @@
 
 
 
+Cron Expression Parser is a utility tool which reads a cron job expression and expands each field
+to show the times at which it will run.
+
 The script was developed in java and gradle was used for building and unit testing.
 The decision to use these tools was taken given the popularity of the tools in java world.
-only dependency is junit.
 
 
 ### Building the script
-N.b. You will need at least Gradle 7.x and JDK 1.8 to build and run the script.
+## Prerequisites
+Gradle 7.x
+JDK 1.8
 
-From the project root, do `gradlew clean build` :
+From the root of the project, Run `gradlew clean build` :
 ```bash
 $ gradlew clean build
 ..
@@ -19,7 +23,7 @@ $ gradlew clean build
 ```
 
 ### Running the script
-Download v1.0 release from here https://github.com/sai17386/cron-expression-parser/releases and execute according to specs:
+To directly run the script, Download v1.0 release from here https://github.com/sai17386/cron-expression-parser/releases and run below command:
 
 ```bash
 $ java -jar cron-expression-parser-1.0-SNAPSHOT.jar "0 0 1,2,3,15 * 1-5 /usr/bin/find"
