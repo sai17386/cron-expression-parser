@@ -12,6 +12,7 @@ The decision to use these tools was taken given the popularity of the tools in j
 ### Building the script
 ## Prerequisites
 Gradle 7.x
+
 JDK 1.8
 
 From the root of the project, Run `gradlew clean build` :
