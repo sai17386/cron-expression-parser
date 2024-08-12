@@ -5,7 +5,7 @@ import static java.lang.String.format;
 
 /**
  * A CronExpression is a representation of a cron string with all members:
- * [minute] [hour] [day of month] [day of week] [command]
+ * [minute] [hour] [day of month] [month] [day of week] [command]
  *
  * It will validate basic syntax and delegate calculation of each member of the cron string (month, year ) to CronField,
  * which in turn will calculate the relevant exploded times (e.g. 1-3 will be 1,2,3 ) .
@@ -25,7 +25,7 @@ public class CronParserExpression {
         String[] cronMembers = arg.split("\\s+");
         if (cronMembers.length != 6) {
             throw new InvalidCronParserFieldException(
-                "Expected [minute] [hour] [day of month] [day of week] [command] but got :" + arg);
+                "Expected [minute] [hour] [day of month] [month] [day of week] [command] but got :" + arg);
         }
 
         minutes = new CronParserField(cronMembers[0], CronParserFieldType.MINUTES);
