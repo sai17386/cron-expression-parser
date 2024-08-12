@@ -27,6 +27,12 @@ public class CronParserField {
         parseIntervals();
 
         if (values.isEmpty()) {
+            int value = parseNumber(incomingText);
+            if (value < type.min || value > type.max) {
+                throw new InvalidCronParserFieldException(
+                    "Number " + incomingText + " for " + type + " is outside valid range (" + type.min + "-" + type.max +
+                        ")");
+            }
             values.add(parseNumber(incomingText));
         }
     }

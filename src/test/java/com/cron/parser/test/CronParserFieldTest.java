@@ -86,6 +86,11 @@ public class CronParserFieldTest {
         tryParse("1,32", CronParserFieldType.DAY_OF_MONTH, "outside valid range");
     }
 
+    @Test
+    public void incorrectFixedValue() {
+        tryParse("100", CronParserFieldType.DAY_OF_MONTH, "outside valid range");
+    }
+
     /**
      * Test correct interval expressions ( e.g. * , *\/15 , *\/20 )
      */
