@@ -7,8 +7,13 @@ public class Main {
 
     public static void main(String[] args) {
         if (args.length != 1) {
-            System.err.println(
-                "Expected [minute] [hour] [day of month] [day of week] [command] but got :" + Arrays.toString(args));
+            StringBuilder message = new StringBuilder();
+            message.append("Expected [");
+            for (CronParserFieldType type : CronParserFieldType.values()) {
+                message.append(type.description).append("] [");
+            }
+            message.append("command] but got :").append(Arrays.toString(args));
+            System.err.println(message);
             return;
         }
 
