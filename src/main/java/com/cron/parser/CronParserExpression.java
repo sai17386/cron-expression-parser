@@ -21,9 +21,14 @@ public class CronParserExpression {
 
     public CronParserExpression(String arg) throws InvalidCronParserFieldException {
         String[] cronMembers = arg.split("\\s+");
-        if (cronMembers.length != 6) {
-            throw new InvalidCronParserFieldException(
-                "Expected [minute] [hour] [day of month] [month] [day of week] [command] but got :" + arg);
+        if (cronMembers.length != CronParserFieldType.values().length + 1) {
+            StringBuilder message = new StringBuilder();
+            message.append("Expected [");
+            for (CronParserFieldType type : CronParserFieldType.values()) {
+                message.append(type.description).append("] [");
+            }
+            message.append("command] but got :").append(arg);
+            throw new InvalidCronParserFieldException(message.toString());
         }
         fields = new ArrayList<>();
         for (CronParserFieldType type : CronParserFieldType.values()) {
